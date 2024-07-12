@@ -10,7 +10,7 @@ after_initialize do
       every 30.minutes
   
       def execute(args)
-        ActiveRecord::Base.connection.execute("UPDATE user_options SET chat_email_frequency = 0")
+        ActiveRecord::Base.connection.execute("UPDATE user_options SET chat_email_frequency = 0 WHERE chat_email_frequency <> 0")
       end
     end
   
